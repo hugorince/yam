@@ -1,6 +1,13 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
-export default function Home() {
-  return <div>coucou</div>;
-}
+const Home = () => {
+  return (
+    <main>
+      <h1 className={styles.title}>YAM 4 colonnes</h1>
+      <Link href="/game">commencez à jouer</Link>
+    </main>
+  );
+};
+
+export default Home;
