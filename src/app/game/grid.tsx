@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 
 const InputGrid = () => {
   const [totalNums, setTotalNums] = useState(0);
+  const [total, setTotal] = useState(0);
   const [bonus, setBonus] = useState(0);
   const [num, setNum] = useState({
     one: 0,
@@ -13,12 +14,20 @@ const InputGrid = () => {
     six: 0,
     plus: 0,
     less: 0,
+    small: 0,
+    large: 0,
+    brelan: 0,
+    full: 0,
+    square: 0,
+    yam: 0,
   });
 
   useEffect(() => {
     setTotalNums(num.one + num.two + num.three + num.four + num.five + num.six);
     totalNums >= 60 ? setBonus(35) : setBonus(0);
-  }, [num, totalNums]);
+    setTotal(Object.values(num).reduce((a, c) => a + c) + bonus);
+    // console.log(num, total);
+  }, [num, totalNums, bonus, total]);
 
   return (
     <div className={styles.gridWrapper}>
@@ -134,37 +143,91 @@ const InputGrid = () => {
         }
       />
       <p className={styles.cell}>Petite suite</p>
-      <select name="" id="selectSmall">
+      <select
+        name=""
+        id="selectSmall"
+        onChange={(e) =>
+          parseInt(e.target.value) === 20
+            ? setNum({ ...num, small: parseInt(e.target.value) })
+            : setNum({ ...num, small: 0 })
+        }
+      >
         <option value=""></option>
         <option value="X">X</option>
         <option value="20">20</option>
       </select>
       <p className={styles.cell}>Grande suite</p>
-      <select name="" id="selectLarge">
+      <select
+        name=""
+        id="selectLarge"
+        onChange={(e) =>
+          parseInt(e.target.value) === 30
+            ? setNum({ ...num, large: parseInt(e.target.value) })
+            : setNum({ ...num, large: 0 })
+        }
+      >
         <option value=""></option>
         <option value="X">X</option>
         <option value="30">30</option>
       </select>
+      <p className={styles.cell}>Brelan</p>
+      <select
+        name=""
+        id="selectBrelan"
+        onChange={(e) =>
+          parseInt(e.target.value) === 20
+            ? setNum({ ...num, brelan: parseInt(e.target.value) })
+            : setNum({ ...num, brelan: 0 })
+        }
+      >
+        <option value=""></option>
+        <option value="X">X</option>
+        <option value="20">20</option>
+      </select>
       <p className={styles.cell}>Full</p>
-      <select name="" id="selectFull">
+      <select
+        name=""
+        id="selectFull"
+        onChange={(e) =>
+          parseInt(e.target.value) === 30
+            ? setNum({ ...num, full: parseInt(e.target.value) })
+            : setNum({ ...num, full: 0 })
+        }
+      >
         <option value=""></option>
         <option value="X">X</option>
         <option value="30">30</option>
       </select>
       <p className={styles.cell}>Carré</p>
-      <select name="" id="selectSquare">
+      <select
+        name=""
+        id="selectSquare"
+        onChange={(e) =>
+          parseInt(e.target.value) === 40
+            ? setNum({ ...num, square: parseInt(e.target.value) })
+            : setNum({ ...num, square: 0 })
+        }
+      >
         <option value=""></option>
         <option value="X">X</option>
         <option value="40">40</option>
       </select>
       <p className={styles.cell}>Yam</p>
-      <select name="" id="selectYam">
+      <select
+        name=""
+        id="selectYam"
+        onChange={(e) =>
+          parseInt(e.target.value) === 50
+            ? setNum({ ...num, yam: parseInt(e.target.value) })
+            : setNum({ ...num, yam: 0 })
+        }
+      >
         <option value=""></option>
         <option value="X">X</option>
         <option value="50">50</option>
       </select>
       <p className={styles.cell}>total</p>
-      <p className={styles.cell}>{totalNums}</p>
+      <p className={styles.cell}>{total}</p>
     </div>
   );
 };
