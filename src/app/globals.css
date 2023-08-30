@@ -9,4 +9,23 @@
 input {
   display: block;
   width: 100%;
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+select {
+  text-align: center;
+  font-size: 1rem;
+  border: solid;
+  padding-left: 0.6rem;
+}
+
+#totalName {
+  background-color: lightgreen;
+  font-weight: 700;
+}
+
+#totalResult {
+  background-color: azure;
+  font-weight: 700;
 }
