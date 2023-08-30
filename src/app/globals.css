@@ -1,0 +1,12 @@
+#twoName {
+}
+
+* {
+  /* all element selector */
+  box-sizing: border-box; /* border, within the width of the element */
+}
+
+input {
+  display: block;
+  width: 100%;
+}

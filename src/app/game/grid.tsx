@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 const InputGrid = () => {
-  const [total, setTotal] = useState(0);
+  const [totalNums, setTotalNums] = useState(0);
   const [bonus, setBonus] = useState(0);
   const [num, setNum] = useState({
     one: 0,
@@ -11,23 +11,21 @@ const InputGrid = () => {
     four: 0,
     five: 0,
     six: 0,
+    plus: 0,
+    less: 0,
   });
 
   useEffect(() => {
-    setTotal(
-      Object.values(num).reduce((a, v) => {
-        return a + v;
-      })
-    );
-    total >= 60 ? setBonus(35) : setBonus(0);
-  }, [num, total]);
+    setTotalNums(num.one + num.two + num.three + num.four + num.five + num.six);
+    totalNums >= 60 ? setBonus(35) : setBonus(0);
+  }, [num, totalNums]);
 
   return (
     <div className={styles.gridWrapper}>
-      <p className={styles.one}>1</p>
+      <p className={styles.cell}>1</p>
       <input
-        className={styles.oneContent}
-        id="1"
+        className={styles.cell}
+        id="oneContent"
         type="number"
         min="0"
         max="5"
@@ -37,10 +35,12 @@ const InputGrid = () => {
           setNum({ ...num, one: parseInt(e.target.value) })
         }
       />
-      <p className={styles.two}>2</p>
+      <p className={styles.cell} id="twoName">
+        2
+      </p>
       <input
-        className={styles.twoContent}
-        id="2"
+        className={styles.cell}
+        id="twoContent"
         type="number"
         min="0"
         max="10"
@@ -50,10 +50,10 @@ const InputGrid = () => {
           setNum({ ...num, two: parseInt(e.target.value) })
         }
       />
-      <p className={styles.three}>3</p>
+      <p className={styles.cell}>3</p>
       <input
-        className={styles.threeContent}
-        id="3"
+        className={styles.cell}
+        id="threeContent"
         type="number"
         min="0"
         max="15"
@@ -63,10 +63,10 @@ const InputGrid = () => {
           setNum({ ...num, three: parseInt(e.target.value) })
         }
       />
-      <p className={styles.four}>4</p>
+      <p className={styles.cell}>4</p>
       <input
-        className={styles.fourContent}
-        id="4"
+        className={styles.cell}
+        id="fourContent"
         type="number"
         min="0"
         max="20"
@@ -76,10 +76,10 @@ const InputGrid = () => {
           setNum({ ...num, four: parseInt(e.target.value) })
         }
       />
-      <p className={styles.five}>5</p>
+      <p className={styles.cell}>5</p>
       <input
-        className={styles.fiveContent}
-        id="5"
+        className={styles.cell}
+        id="fiveContent"
         type="number"
         min="0"
         max="25"
@@ -89,10 +89,10 @@ const InputGrid = () => {
           setNum({ ...num, five: parseInt(e.target.value) })
         }
       />
-      <p className={styles.six}>6</p>
+      <p className={styles.cell}>6</p>
       <input
-        className={styles.sixContent}
-        id="6"
+        className={styles.cell}
+        id="sixContent"
         type="number"
         min="0"
         max="30"
@@ -102,10 +102,69 @@ const InputGrid = () => {
           setNum({ ...num, six: parseInt(e.target.value) })
         }
       />
-      <p className={styles.total}>total</p>
-      <p className={styles.totalContent}>{total}</p>
-      <p className={styles.bonus}>bonus</p>
-      <p className={styles.bonusContent}>{bonus}</p>
+      <p className={styles.cell}>total</p>
+      <p className={styles.cell}>{totalNums}</p>
+      <p className={styles.cell}>bonus</p>
+      <p className={styles.cell}>{bonus}</p>
+      <p className={styles.cell}>+</p>
+      <input
+        className={styles.cell}
+        id="plusContent"
+        type="number"
+        min="0"
+        max="30"
+        value={num.plus || 0}
+        onChange={(e) =>
+          parseInt(e.target.value) >= 0 && parseInt(e.target.value) > num.less
+            ? setNum({ ...num, plus: parseInt(e.target.value) })
+            : setNum({ ...num, plus: 0 })
+        }
+      />
+      <p className={styles.cell}>-</p>
+      <input
+        className={styles.cell}
+        id="lessContent"
+        type="number"
+        min="0"
+        max="30"
+        value={num.less || 0}
+        onChange={(e) =>
+          parseInt(e.target.value) >= 0 &&
+          setNum({ ...num, less: parseInt(e.target.value) })
+        }
+      />
+      <p className={styles.cell}>Petite suite</p>
+      <select name="" id="selectSmall">
+        <option value=""></option>
+        <option value="X">X</option>
+        <option value="20">20</option>
+      </select>
+      <p className={styles.cell}>Grande suite</p>
+      <select name="" id="selectLarge">
+        <option value=""></option>
+        <option value="X">X</option>
+        <option value="30">30</option>
+      </select>
+      <p className={styles.cell}>Full</p>
+      <select name="" id="selectFull">
+        <option value=""></option>
+        <option value="X">X</option>
+        <option value="30">30</option>
+      </select>
+      <p className={styles.cell}>Carré</p>
+      <select name="" id="selectSquare">
+        <option value=""></option>
+        <option value="X">X</option>
+        <option value="40">40</option>
+      </select>
+      <p className={styles.cell}>Yam</p>
+      <select name="" id="selectYam">
+        <option value=""></option>
+        <option value="X">X</option>
+        <option value="50">50</option>
+      </select>
+      <p className={styles.cell}>total</p>
+      <p className={styles.cell}>{totalNums}</p>
     </div>
   );
 };
