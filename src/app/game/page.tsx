@@ -7,8 +7,8 @@ const Game = () => {
     <div>
       <div className={styles.allColumns}>
         <GridNames />
-        <InputGrid />
-        <InputGrid />
+        <InputGrid sec={false} />
+        <InputGrid sec={true} />
       </div>
     </div>
   );

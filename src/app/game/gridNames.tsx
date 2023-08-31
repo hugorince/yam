@@ -4,6 +4,9 @@ const GridNames = () => {
   return (
     <div className={styles.gridWrapper}>
       <div className={styles.cell}>
+        <p>4 Collonnes</p>
+      </div>
+      <div className={styles.cell}>
         <p>1</p>
       </div>
       <div className={styles.cell}>
