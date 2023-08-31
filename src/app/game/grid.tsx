@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
@@ -36,7 +37,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="5"
-        value={num.one || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, one: parseInt(e.target.value) })
@@ -48,7 +48,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="10"
-        value={num.two || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, two: parseInt(e.target.value) })
@@ -60,7 +59,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="15"
-        value={num.three || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, three: parseInt(e.target.value) })
@@ -72,7 +70,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="20"
-        value={num.four || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, four: parseInt(e.target.value) })
@@ -84,7 +81,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="25"
-        value={num.five || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, five: parseInt(e.target.value) })
@@ -97,7 +93,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="30"
-        value={num.six || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, six: parseInt(e.target.value) })
@@ -115,7 +110,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="30"
-        value={num.plus || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 && parseInt(e.target.value) > num.less
             ? setNum({ ...num, plus: parseInt(e.target.value) })
@@ -128,7 +122,6 @@ const InputGrid = () => {
         type="number"
         min="0"
         max="30"
-        value={num.less || 0}
         onChange={(e) =>
           parseInt(e.target.value) >= 0 &&
           setNum({ ...num, less: parseInt(e.target.value) })
