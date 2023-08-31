@@ -20,11 +20,6 @@ select {
   padding-left: 0.6rem;
 }
 
-#totalName {
-  background-color: lightgreen;
-  font-weight: 700;
-}
-
 #totalResult {
   background-color: azure;
   font-weight: 700;

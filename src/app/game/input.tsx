@@ -4,9 +4,10 @@ type InputCustomTypes = {
   setNum: any;
   num: any;
   value: string;
+  type: string;
 };
 
-const InputCustom = ({ setNum, num, value }: InputCustomTypes) => {
+const InputCustom = ({ setNum, num, value, type }: InputCustomTypes) => {
   return (
     <div>
       <input
@@ -14,17 +15,22 @@ const InputCustom = ({ setNum, num, value }: InputCustomTypes) => {
         id="oneContent"
         type="number"
         min="0"
+        disabled={
+          type === "desc" && value !== "1" && num[parseInt(value) - 1] === 0
+        }
         max={
-          value === "one"
+          value === "1"
             ? "5"
-            : value === "two"
+            : value === "2"
             ? "10"
-            : value === "three"
+            : value === "3"
             ? "15"
-            : value === "four"
+            : value === "4"
             ? "20"
-            : value === "five"
+            : value === "5"
             ? "25"
+            : value === "6"
+            ? "30"
             : "30"
         }
         onChange={(e) =>

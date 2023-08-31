@@ -1,14 +1,8 @@
-/* .gridWrapper {
+.allColumns {
   display: grid;
-  grid-template-columns: auto, auto;
+  grid-template-columns: auto auto auto auto auto;
   border: solid;
-  /* position: absolute; 
-} */
-
-/* .cell {
-  border: solid;
-  text-align: center;
-} */
+}
 
 .gridWrapper {
   display: grid;
@@ -22,8 +16,20 @@
   height: 3rem;
 }
 
-.allColumns {
-  display: grid;
-  grid-template-columns: auto auto auto;
+.cellTotal {
   border: solid;
+  margin-top: 0;
+  text-align: center;
+  height: 3rem;
+  background-color: lightgreen;
+  font-weight: 700;
+}
+
+.cellTitle {
+  border: solid;
+  margin-top: 0;
+  text-align: center;
+  height: 3rem;
+  background-color: lightgoldenrodyellow;
+  font-weight: 700;
 }

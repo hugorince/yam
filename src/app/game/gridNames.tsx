@@ -3,8 +3,8 @@ import styles from "./page.module.css";
 const GridNames = () => {
   return (
     <div className={styles.gridWrapper}>
-      <div className={styles.cell}>
-        <p>4 Collonnes</p>
+      <div className={styles.cellTitle}>
+        <p>4 COLONNES</p>
       </div>
       <div className={styles.cell}>
         <p>1</p>
@@ -24,7 +24,7 @@ const GridNames = () => {
       <div className={styles.cell}>
         <p>6</p>
       </div>
-      <div className={styles.cell} id="totalName">
+      <div className={styles.cellTotal}>
         <p>total</p>
       </div>
       <div className={styles.cell}>
@@ -54,7 +54,7 @@ const GridNames = () => {
       <div className={styles.cell}>
         <p>Yam</p>
       </div>
-      <div className={styles.cell} id="totalName">
+      <div className={styles.cellTotal}>
         <p>total</p>
       </div>
     </div>

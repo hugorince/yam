@@ -7,8 +7,10 @@ const Game = () => {
     <div>
       <div className={styles.allColumns}>
         <GridNames />
-        <InputGrid sec={false} />
-        <InputGrid sec={true} />
+        <InputGrid type={"desc"} />
+        <InputGrid type={"asc"} />
+        <InputGrid type={"normal"} />
+        <InputGrid type={"sec"} />
       </div>
     </div>
   );
