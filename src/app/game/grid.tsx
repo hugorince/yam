@@ -21,12 +21,12 @@ const InputGrid = ({ type }: InputGridTypes) => {
     "6": 0,
     "7": 0,
     "8": 0,
-    "9": 0,
-    "10": 0,
-    "11": 0,
-    "12": 0,
-    "13": 0,
-    "14": 0,
+    "9": 0 || "X",
+    "10": 0 || "X",
+    "11": 0 || "X",
+    "12": 0 || "X",
+    "13": 0 || "X",
+    "14": 0 || "X",
   });
 
   useEffect(() => {
@@ -38,7 +38,11 @@ const InputGrid = ({ type }: InputGridTypes) => {
       : totalNums >= 60 && type === "sec"
       ? setBonus(70)
       : setBonus(0);
-    setTotal(Object.values(num).reduce((a, c) => a + c) + bonus);
+    setTotal(
+      Object.values(num)
+        .filter((e) => e !== "FAIL" && e !== "X")
+        .reduce((a, c) => a + c) + bonus
+    );
   }, [num, totalNums, bonus, total, type]);
 
   return (

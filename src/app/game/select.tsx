@@ -19,10 +19,15 @@ const SelectCustom = ({
     <select
       className={styles.cell}
       id={name}
-      disabled={type === "desc" && num[parseInt(name) - 1] === 0}
+      disabled={
+        (type === "desc" && num[parseInt(name) - 1] === 0) ||
+        (type === "desc" && num[parseInt(name) - 1] === "X")
+      }
       onChange={(e) =>
         parseInt(e.target.value) === value
           ? setNum({ ...num, [name]: parseInt(e.target.value) })
+          : e.target.value === "X"
+          ? setNum({ ...num, [name]: "FAIL" })
           : setNum({ ...num, [name]: 0 })
       }
     >
