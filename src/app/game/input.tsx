@@ -16,7 +16,10 @@ const InputCustom = ({ setNum, num, value, type }: InputCustomTypes) => {
         type="number"
         min="0"
         disabled={
-          type === "desc" && value !== "1" && num[parseInt(value) - 1] === "0"
+          (type === "desc" &&
+            value !== "1" &&
+            num[parseInt(value) - 1] === "0") ||
+          (type === "asc" && value !== "14" && num[parseInt(value) + 1] === "0")
         }
         max={
           value === "1"
