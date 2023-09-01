@@ -13,25 +13,30 @@ const InputGrid = ({ type }: InputGridTypes) => {
   const [total, setTotal] = useState(0);
   const [bonus, setBonus] = useState(0);
   const [num, setNum] = useState({
-    "1": 0,
-    "2": 0,
-    "3": 0,
-    "4": 0,
-    "5": 0,
-    "6": 0,
-    "7": 0,
-    "8": 0,
-    "9": 0 || "X",
-    "10": 0 || "X",
-    "11": 0 || "X",
-    "12": 0 || "X",
-    "13": 0 || "X",
-    "14": 0 || "X",
+    "1": "0" || 0,
+    "2": "0" || 0,
+    "3": "0" || 0,
+    "4": "0" || 0,
+    "5": "0" || 0,
+    "6": "0" || 0,
+    "7": "0" || 0,
+    "8": "0" || 0,
+    "9": "0" || 0,
+    "10": "0" || 0,
+    "11": "0" || 0,
+    "12": "0" || 0,
+    "13": "0" || 0,
+    "14": "0" || 0,
   });
 
   useEffect(() => {
     setTotalNums(
-      num["1"] + num["2"] + num["3"] + num["4"] + num["5"] + num["6"]
+      parseInt(num["1"]) +
+        parseInt(num["2"]) +
+        parseInt(num["3"]) +
+        parseInt(num["4"]) +
+        parseInt(num["5"]) +
+        parseInt(num["6"])
     );
     totalNums >= 60 && type === "normal"
       ? setBonus(35)
@@ -41,7 +46,7 @@ const InputGrid = ({ type }: InputGridTypes) => {
     setTotal(
       Object.values(num)
         .filter((e) => e !== "FAIL" && e !== "X")
-        .reduce((a, c) => a + c) + bonus
+        .reduce((a, c) => parseInt(a) + parseInt(c)) + bonus
     );
   }, [num, totalNums, bonus, total, type]);
 

@@ -21,7 +21,7 @@ const SelectCustom = ({
       id={name}
       disabled={
         (type === "desc" && num[parseInt(name) - 1] === 0) ||
-        (type === "desc" && num[parseInt(name) - 1] === "X")
+        (type === "desc" && num[parseInt(name) - 1] === "0")
       }
       onChange={(e) =>
         parseInt(e.target.value) === value
