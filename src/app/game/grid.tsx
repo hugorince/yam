@@ -6,9 +6,11 @@ import InputCustom from "./input";
 
 type InputGridTypes = {
   type: string;
+  totalGlobal: any;
+  setTotalGlobal: any;
 };
 
-const InputGrid = ({ type }: InputGridTypes) => {
+const InputGrid = ({ type, totalGlobal, setTotalGlobal }: InputGridTypes) => {
   const [totalNums, setTotalNums] = useState(0);
   const [total, setTotal] = useState(0);
   const [bonus, setBonus] = useState(0);
@@ -49,6 +51,10 @@ const InputGrid = ({ type }: InputGridTypes) => {
         .reduce((a, c) => parseInt(a) + parseInt(c)) + bonus
     );
   }, [num, totalNums, bonus, total, type]);
+
+  useEffect(() => {
+    setTotalGlobal({ ...totalGlobal, [type]: total });
+  }, [total]);
 
   return (
     <div className={styles.gridWrapper}>
