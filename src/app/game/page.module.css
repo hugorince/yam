@@ -4,6 +4,25 @@
   border: solid;
 }
 
+.lastRow {
+  grid-column: 1/4;
+  border: solid;
+  margin-top: 0;
+  text-align: center;
+  height: 3rem;
+  background-color: lightgoldenrodyellow;
+  font-weight: 700;
+}
+
+.lastRowScore {
+  grid-column: 4/6;
+  border: solid;
+  margin-top: 0;
+  text-align: center;
+  height: 3rem;
+  font-weight: 700;
+}
+
 .gridWrapper {
   display: grid;
   grid-template-columns: auto;

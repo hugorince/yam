@@ -11,7 +11,11 @@ const Game = () => {
         <InputGrid type={"asc"} />
         <InputGrid type={"normal"} />
         <InputGrid type={"sec"} />
+
+        <div className={styles.lastRow}>Super total</div>
+        <div className={styles.lastRowScore}>0</div>
       </div>
+      <button>calculate total</button>
     </div>
   );
 };
