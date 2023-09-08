@@ -3,7 +3,7 @@
 import InputGrid from "./grid";
 import GridNames from "./gridNames";
 import styles from "./page.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Game = () => {
   const [totalGlobal, setTotalGlobal] = useState({

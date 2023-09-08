@@ -6,7 +6,12 @@ import InputCustom from "./input";
 
 type InputGridTypes = {
   type: string;
-  totalGlobal: any;
+  totalGlobal: {
+    desc: number;
+    asc: number;
+    normal: number;
+    sec: number;
+  };
   setTotalGlobal: any;
 };
 
@@ -45,16 +50,15 @@ const InputGrid = ({ type, totalGlobal, setTotalGlobal }: InputGridTypes) => {
       : totalNums >= 60 && type === "sec"
       ? setBonus(70)
       : setBonus(0);
-    setTotal(
-      Object.values(num)
-        .filter((e) => e !== "FAIL" && e !== "X")
-        .reduce((a, c) => parseInt(a) + parseInt(c)) + bonus
+    const totalTemp = Object.values(num).filter(
+      (e) => e !== "FAIL" && e !== "X"
     );
+    setTotal(totalTemp.reduce((a, c) => parseInt(a) + parseInt(c)) + bonus);
   }, [num, totalNums, bonus, total, type]);
 
   useEffect(() => {
     setTotalGlobal({ ...totalGlobal, [type]: total });
-  }, [total]);
+  }, [total, type]);
 
   return (
     <div className={styles.gridWrapper}>
