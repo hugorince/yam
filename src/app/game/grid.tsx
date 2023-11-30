@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import styles from "./page.module.css";
 import SelectCustom from "./select";
 import InputCustom from "./input";
@@ -12,7 +12,14 @@ type InputGridTypes = {
     normal: number;
     sec: number;
   };
-  setTotalGlobal: any;
+  setTotalGlobal: React.Dispatch<
+    SetStateAction<{
+      desc: number;
+      asc: number;
+      normal: number;
+      sec: number;
+    }>
+  >;
 };
 
 const InputGrid = ({ type, totalGlobal, setTotalGlobal }: InputGridTypes) => {
